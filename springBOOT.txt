@@ -1,0 +1,586 @@
+SPRING CLOUD -->MICROSERVICIOS MAQ VIRTUAL ditsinta para cada micorservico...CIRCULITO UN MICREOSERVICIO NUEVO
+microservicio: servicio qeu es independiente de los demas. no tiene ni po que ser el mniso lenhuaje 
+
+SPRING BOOT--->CONFIGURACION BASE PAR CREAR CAD CIRCULITO
+
+stat spring io o spring initializer:
+herramenta para darnos una plantillla de proyecto
+-->jasrs qeu necsitamos
+
+https://start.spring.io/
+pones web x e jemp y te decarga las lisbrerias neecsarias
+Pero oj con este web
+
+
+son autodesplefables no necesitamos tomcat
+es lo equivalente al jetty que e s un contendor de servlets. Lo dice por lo del tomcat embbebido
+
+was por ejemplo suministro muchos servicios q serian un circulito des esos probablemnete
+si una libre√≠a.
+
+
+pero nosabemos que version de spring web me va a mater solo la version de spring boot y ,me da las coasa compatinles con esa version
+-->despues puede cambairse porquee sto sera una plantilla maven --->alterrar el  a mano
+cambias la version -->cambia todas las vesiones de los jars relacionaodos con ella. Algo limnitados estamos en ese aspecto
+
+spring boot lo usaremos cuadno el entorno de libreer√≠as no sea algo que me importa
+
+vovlemoa  a lo del web. Meter√° tb otro tipo de dependencias: los starter. es una librer√≠a qeu nos dara una preconfiguraci√≥n de ese framework de spring. La idea es cubrir a un 80/100 la mayor√≠a de usos de cuando curramos cnn spring. Por magia a pareceran en el 
+contexto de spring con la configuraci√≥n esa del 80/100. Sino si ssomo del 20/100 restante-->tenemos un properties o yamal
+pom.xml del demo se absa en xml -->mas exten dido
+GRaddel se basa en dsl groovy
+
+springboot es un frmawork de aplicaciones rapidas. para poder tener el codigo cuanto antes. estamos atados aalas configuraciones que nos propoerciona.hay mas de 300 propiedades extra para configuarra
+ggeting startds de spring ??
+
+pom.xml del demo se absa en xml 
+gadel se basa en dsl groovy
+
+
+demo de generate project desde io....:
+
+pom.xml
+--<para ceaer el classspath
+lo que yo yrngo ne mi src ava  tirar de clases que est√°n en esas dependencias y de todas las aue estas depndencias necesiaten (transitivas)
+
+
+<parent>
+-->heencia de ahi es de donde vienen  todos esos elementos
+
+
+
+tb crea un plugin
+--->Tareas que voy a apoder a√±adir
+ene eeste caso im plgin de springboot--> eeste en concreto poder ejecutar mi proyecto a partir de una tarea maven
+
+
+
+
+src
+	/main
+		/java
+		/resources:cosas que no tienn que ser compilados:nuestro properties del que hablamos antes
+	/test
+	
+	
+	
+C:\Users\njalcaide\Desktop\cursoSpringBoot\demo\src\main\java\com\example\demo
+
+Se ha creado asi porque aS√ç LO PONE ENE L formulario de http: ...io	i.e en el pom.xml (grpuoid, artifact etx--->sabe os que ser√°n ids unicos)
+
+
+TODOS LOS PROJECTSO VAN A TENER ESTA CALSE para ese paquete. LA CLASE QUE TIENE LA ANOTACION @SpringBootApplication (DemoApplication)
+	
+	
+	
+	
+	********************************
+	
+	
+	C:\Users\njalcaide\Downloads\spring-tool-suite-3.9.6.RELEASE-e4.9.0-win32
+	Arrancamos el spring tool suite
+	
+	C:\Users\njalcaide\Downloads\spring-tool-suite-3.9.6.RELEASE-e4.9.0-win32\sts-bundle\sts-3.9.6.RELEASE XXXXXXXXXXX no es de 64 y el java que descargue si
+	
+	
+	Dsacragamso el deel eclipse 
+	C:\Users\njalcaide\Downloads\spring-tool-suite-3.9.6.RELEASE-e4.9.0-win32-x86_64\sts-bundle\sts-3.9.6.RELEASE este ok
+	
+	C:\Users\njalcaide\Documents\workspace-sts-3.9.6.RELEASE -->workspace
+	file new spring project strated project es lo mismo que lo que hicimismo en el io.--->esta ya te lo hace sin tener que importarlo
+	
+	
+	
+	
+	
+	ejecutar como proyecto run as spring boot app
+	
+	en consola:
+	: Tomcat initialized with port(s): 8080 (http)
+	
+	
+	
+	
+	
+********************************************************************************************************************************************************
+	SPRING MVC
+	
+	probrlma
+	
+	
+	La unica forma de conseguir un java a traves de un http es con un servlet Y NO QUQEREMOSUSAR SERVLETES
+	SOL YO NO USARE√â EL SERVLET-->SERA EL FRMAWORK EL QUE ME DE EL SERVLET--->DISPATCHER SERV√ëLET ==FRONT CONTROLLER. TOAS
+	LAS PETICIONES PASAN POR EL CONTROLADOR. EL DISPATCHER SERVLET HACE ALGUNA DE LA TAREAS DEL CONTROLADOR PERO NO TODAS
+	el no puede HAcer lo de negocio. NI SABER QUE HACRE PSRS CADA PETICION (LO CODIFICAMOS NOSOTROS)
+	
+	
+	i.E: PETICION HHTP --->DISP SERVLET -->CCONTROLA---->VISTA
+	
+	LO VIMOS EN 2018-09-24 17:35:24.106  INFO 20752 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+	EN LA CONSOLE DEL ECLIPSE Raro este
+	
+	
+	EL DISPATCHER SERVLET PUEDE DELEGAR EL HELPERERS
+	
+	
+	¬øY SI HAY VARIOS CONTROLADORES?
+	USAREMOS UN HELPER QUE SEER√Å EL HANDLER MAPPING PARA SABER A QUE CONTROLARO VAMOS
+	
+	
+	
+	
+	
+	DISP SERVLET<---CONTROLADOR
+	
+	O LE `PSASA EL OBEJTO VIEW O LE PASA UNA CLAVE
+	SI VISTA: ACOPALMINETO
+	SI CLAVE-->NEECSAITAMOS UN HELPER
+	
+	
+	
+	NOSOTROS VAMOS A USAR ESTE FRAMWORK PERO NO COMO UN MVC --->NO QUEREMOS LA V
+	
+	BUSACMOS UN DATO (JSON)  IE DESAPARECE EL VIEW RESOLVER -->USAREMSOMUN MESSAGE CONVERTER (parA UN TIPO DE DATOS json, xml,png etc)
+	
+	
+	
+	todas etsa cosas necesitamoslas CON SPRING BOOT YA LAS TENEMOS. ENTONCES SOLO NOS FALTA EL CONTROLLER?
+	PAAR DEFINIR UN CONTROLLLER EN NU PROYECTO DE SPRING BOOT BASTA CON 
+	
+	
+	
+	@componentscan esta incluida dentro dee @spriongbootapplication
+	-->@componentscan te busca el @taal y te crea los beans
+	
+	
+	@Controller no esta en spring mvc sino que esta ene l core -->ESTO SOLO HACE QUE SEA UN BEAN
+	spring mvc si lo encuentra lo puede considerrar comoun candidato a recibir una HTTP: COSA QUE POR EJMEPLO NO OCURRIRIA CON UN @COMPONENT
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Ver helloworldcontroller.java
+	//http es sincrono
+	
+	// asincrono le da igual cuando termine el servicio. El cliente se queda esperadno a que acabe el servicio
+	// no VA A SER EN LA MISMA PETICION LA RESPUESTA, ALO MEJOR ES UN ,MAIL O LO QUE SEA
+	// PERO NO VA A SER EN LA  MISMA PETICI√ìN
+	// ESTO EN AJVA SE HACE CON JMS
+	ENTRE EL CLIENTE Y EL SERVIDOR SE INTRODUCE UN ROLLO INTERMEDIO ( BUS DE MENSAJERIA) QUE ES COMO UNA BANDEJA CUANDO VAS A HACIENDAD A QUE TE DEVEULVAN LA PASTA, TU DEJAS EL PAPEL Y NO TIENES LA PASTA
+	//HABRA UN PROCESADO-->DEFINIR UN PUBLICADOR Y UN SUBSCIPTOR
+	
+	// QUE PASA QUEE eSO ES JAVA--->AMQP NO ES JAVA, ES STANDART. ENE L MNUDO DE SPRING SE USA con  RabbitAMQ
+	
+	SPRING CLOUD TB usa AMQP. ENE EST CASO EL BUS DE MENSAJERIA SE USA PARA LA CONFIGURACION DISTRIBUIDA
+	SPRING CLOUD PROPONE UN SERVCIO ACCESIBNLE POR TODAS LAS INSTANCIAS Y VA A PODER REGISTRAR UN EVNTO EN EL BUS Y LAS INSTANCIAS TENDR√ÅN U LISTENERS DE ESOS EVENTOS. TODAS LAS INSTANCIAS RECIBIRAN ESE EVENTO Y PROCEDERAN A PEDIR AL SERVIDOR DE CONFIGURACOPM ESA CONFIGURACOIOJN
+	DE FORMA AUTOMATICA. CON UN AMQP, ENE STE CASO EL Rabbit (es una decision de spring boot)
+	
+	
+	para poder usar esti tendermos que ir al inicializaer (https://start.spring.io/) y meterle esa dependencia
+	
+	
+********************************************************************************************************************************
+dia 2
+********************************************************************************************************************************
+github victorherrerocazurro
+
+en el pom dependencia herarquy vemos solo 4 dependendecias--> vemso que el started trae otras dependecias extras
+
+spring.io es como un servicio que nos da las neecsidaes qeu necesitemos
+
+
+# fichero para personalizar los comportamientos por defecto
+#control esaocio para ver las propierdaes que podemos
+server.port=8050
+#ahor ene l log vemos que el puerto es  este no 8080
+#hay un bean que se encarga de cambair ese puerto...
+#Tomcat initialized with port(s): 8050 (http)
+
+si no usamo lo anetrior podemos usar un .yml yamal
+application.yml lo cree yo
+
+
+poenes server control spaceio y:
+server:
+  address: idem
+Poedmeos hacer los mismo
+
+
+
+esquema de la pagina 58 de la doc
+
+cuadno ahablamos de microserciios estamos hablando de back
+
+
+si saincronia-->amqp bus de mensajeria
+
+no vamos a usar la parte de la vista sino los message converter -->seria loq ue si usasesmos la vista ser√≠a el view resolver del docuemnto pag 58
+valdran para json,xml,atom...etc un message converter para cada uno 
+tendarn un metodo que recibira un string y nos devolver aun obejto complejo de java par ael controlador y viceversa
+si no estuviesemos ocn springboot tendriamos que 
+1)a√±adirle al classpath el converter 
+2)y lueo registrarlo
+
+en springbott esos applicationcontext desaparec en favor de clases java
+sino podemoes crear un ApplicationContext y ponemos ahi los beans: (como siempre)
+
+Esto antes se llevaba para distinguir lo que ere configuracion del proyecto de lo que es la chicha
+
+
+// Aqui sasi defines qwue objeots tenemos ene l cntextod e spring
+<bean class="...........Persona"> --->ya esta cayendo en desuso xq andara con el xml es complicado
+											--->se sustituye por lo que llama javaconfig
+											LO vemos en la clase Configuracion.java
+											
+											
+											
+Vwenimos de lo de jpa y repository
+
+Ahora REST TEMPLATE			
+
+
+Ahora AMQP
+QUEUE
+EXCHANGE-->ES COMO UN CUELLO DE BOTELLA ELIJE UNA O VARIAS QUEUS
+
+nECSITAMSOMUNA IMPLEMNATCACINDE AMQP -->raBBIT NECESITAMSO DOCKER
+Y UNA SERIE DE OBEJTOS QUE MAPEEN LOS OBEJTOS DEL BUS DE MENSAJERIA								
+											
+											
+											
+3.7.8-management-alpine EN GITHUB
+APLINE--<OPTIMIZADO
+MANAGEMENT-->PLUGIN DE MPONITORIZACION	
+
+p√ÅGINA 41
+ docker run --name=rabbitmq -d -p 5672:5672 -p 15672:15672 rabbitmq:3.7.8-management-alpine
+ 
+ localhost:15672 guest guest
+ 
+ en integration en el io -->rabbitmq aunque la dependencia es rabitmqp
+										
+											
+											
+											
+	
+
+cremos el proyecto amqp
+
+
+
+
+
+Ene l documento:
+
+@Controller
+@RequestMapping("/")
+@ConfigurationProperties(prefix="saludo") -->l ESTAAS DICEINDO QUE NE EL CONTROLADOR QUE TIENE ESE GETTERE Y SETTER HABRIA QUE PASARLE saludo.loquefuera
+public class HolaMundoController {}
+
+
+5.5
+Seria la idea recofigyuarr beasn ya existentes
+
+@ENABLE: CONFIGURA BEANS
+@configurationSUPPOTRS : MODIFICAR BEANS YA CONFIGURADOS
+view-controller PARA EVITAR USAR CONTROLADOR CUADNO SOLO QUEREMOS LA VISTA. I.E NO HAY BACKEND
+
+ESTO ENE L APPLICATION CONTEXT:
+<mvc:view-controller path="/" view-name="welcome" />
+
+
+ESTO ENE EL CONFIGURATOR.JAVA
+
+@Override
+public void addViewControllers(ViewControllerRegistry registry) {
+registry.addViewController("/").setViewName("index");
+}
+
+Si vamos aun proyectio web y hacemos
+public class Configuracion implements WebMvcConfigurer
+Asi nos da nuevas implemnatciones si hacemso control+espacio  ene l Configuartion.java en plannuenvos liteners...etc
+
+
+
+
+5.7.6
+
+HttpSession d se lo puedo meter siempre porque es de un  servlet
+public @ResponseBody Persona saludar(Persona persona, HttpSession d) {// ReQUESTbody: es el cuerpo dela peticion
+	// El controlador esle erspioonsable de que llegue un objeto persona con los atributos que tenga
+		return persona;
+	}
+	
+	
+	Otra froma seria :
+
+public @ResponseBody Persona saludar(Persona persona, HttpSession d) {// ReQUESTbody: es el cuerpo dela peticion
+	// El controlador esle erspioonsable de que llegue un objeto persona con los atributos que tenga
+	 d.setAttribute("login", ""); 
+		return persona;
+	}
+	
+	
+	y ene otro metodo ,en los parameyros poner @SessionAtribute("login") String login)--->Verlos en proyecto demo ennel controladoir
+
+
+5.11
+
+5.11.12 reglas qeu van a cumplir
+Sona notaciones que vamso a aincluir enl objeto...@notnull
+
+
+public @ResponseBody Persona saludar(@Valid @RequestBody Persona persona ,Errors errors, @RequestParam String prefijo)
+
+
+@Valid --->rellena un informe con eas violaciojnes y nos lo pas apor parametro
+
+el dispatcher servlet se encarga de instacnciarlo y rellenaRLO enel obheto errors
+Y podemos ver loq ue hay y en funcion de tal seguir o ....bla bla
+
+
+
+5.11.3
+
+5.12
+
+
+5.13:
+
+es como los filtros de los servlets. es algo previo a la llegada del cintrolador
+
+
+
+
+******************************************************************
+
+dia 3
+proyevto internocacionalizacion
+
+
+pagina 130 dibujo
+
+NEGOIADOAR SE ENCARGA DE LAS TAREAS Y LOS ROLLBACKS PORQUE NOEXISTE EL CNOCEPTO TRANSACCIONAL COM TAL
+
+
+_____________________
+
+Dibujito p·g 130 de cubos:
+
+En resumen dif entre monlitico y microservicios
+persistencia
+	SW MONOLITICO---> persistencia ene mmemeoria
+
+	SW MICROSERVICIOS---> persistencia esta e nun servicio--->hay que ir a busacarlo
+
+
+desarrroollo/mantenimineto/evolutivo mas facil
+
+	antes en los jars: se usaban cuando estaban completos y a veces de spues de mucho tiempo cuando lo metemos fallaba
+
+	lo que buscamos es cuando estem acabado lo del jar este ahora en PROducccion conlo cual si esta en produccion  no vamos a perder el tiempo anterior porque si hay errores  se 
+	detectRAN MUCHO ANTES. ademas el cliente cree o percibe que se esta hacveindo algo
+
+
+	
+******************************************************************************************************************************************************	
+	todas las cajas que hay en el esquema de cajas son u problema distinto de usar microservicios
+	lo guay es que si hay caja---->hay sol
+	
+	
+	
+	lo que buscaan los mycroservcioe es que si falla uno se pierda solo esa funcoonaliad y el resto pueda seguir funcoinoadno igual QUE si el otro  funcionase, ya qye cada circulito es independeinte del resto. OK
+
+
+
+El modelo de datos de cada microservicios puede ser el mismo pero lo normal es que cada uno use uno propiio
+Por ejmplpo podriamos en nuestro proyecto incial hacer un jar, importar ese jar en el proyecto anterior y poder tener acceso a la entidad Perosna en vez de crear un entidad nueva Cliente(o al revÈs)
+ en le proyeto anteiror
+
+
+
+Pattrones-->Par implemnatr la arquitectura de cad amicroservcio
+PRING CLOUD proporiciona ayuda para los patrones
+
+CAJITAS:
+- microservice chasis:Crear proyecto: spring boot es nuestrao chasis
+
+- problema de descubrimiento: en u monolitico autowire de algo qeuue ahce autowire y ya estapero cada micro es un circulo independiente--->sol servivio de registro y descubriiento
+TODOS LOS servcios /instancias de un  servcio van a air a UN SERVIDOR A IDENTIFICARSE O REGITRASES .DISCOVERY SERVER Y CLIENTEPARA ELLO SPRING CLOUD NOS DA DOS STARTED: UNO PARA EL CLIENTE Y OTRO PAERA EL SERVER
+
+-Balaanceo (es alguna de las cjas pero no recuerda cual) rel con lo anterior:
+A NECESITA a B C (o a b1 b2 b3....bn )(b1 b2 b3....bn son instancias de MICRO B)
+ya estamsos balanceando
+
+en sw monolotico el balnceo es entre el cliente y el servidor de apps. Y EN EL sERVIDOR DE APPPS ya se elige medieante el balanceo una app. Y ademas solo hay una regla de balanceo
+Con microserciios A va al servidor de registro(SR, Y ACCEDE MEDIANTE UNA PETICOION HHTTTP) para preguntar por tal MICROSERVICIO(B, C o b1,b2,b3..) Y LE DEVUELVE UNA LISTA DE POSIBLES o uno. I.E ya estamos balanceando.
+
+el probelma del balanceo es: 1)que microservicios tengo que balanceary 2)algoritmo de balanceo
+
+
+LA idea es tener un suite con eso...ie que vaya en su adn .ejemplpo netflix en streaming fue de lsoprimeros en hacer  de rompehielos de los anterior (logicas cerradas) y espues liberÛ muchos cuadno tuvo exito
+busac netflix oss y tienes info de esto--->info de eureka server. Esto es loq ue usa Netflix
+
+
+
+Proyecto ServidorRegistroDescubrimiento --><artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+
+paRA Spring cloud no vale solo con aÒadir las dependenciasque ocurre? 		qwuee han creadp un nuenvo proyecvto pom padre pero comono tenemos herencia multiple en mabven
+entonces han decidido que le padre de cloud no sea hijo del de boot, no sabemos por que, definieron otra paralela --->dependency managemenet -->le mets la dependencia con ese pom deonde tenmos las 
+
+<dependencyManagement><------------------------
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type><----------------------------
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+i. e si copiio y pego la dependecia directmente sin usar dependencyManagement va a cascar
+
+	
+Otra coas adistinta en spring cloud es el vesionado que es po palabra no por numeros 
+
+eureka es u producto de Netflix, lo crearom para solucoijonar sus proeblemas
+
+Descragamos el proeycto 04_ClienteMicroservicioATravesEureka y arrancamos priemro ServidorRegistroDescubrimiento y despues este y vamos a localhost:8080
+Importamos el HolaMundoMicreoservcio
+
+Y VOLVEMOS A ARRANCAR ServidorRegistroDescubrimiento Y LOS OTROS DOS ANTERIORES Y SE CONECTARA AL QUE DECIDA POR LA REGLA DE BAALANCEO CREO...øø??
+
+http://localhost:8080/
+VEMOS EN LA CONSOLA QUE HAY 2 ENDPONITS:
+ Exposing 2 endpoint(s) beneath base path '/actuator'
+TENEMSO :
+ http://localhost:8080/ -->EUREKA
+ http://localhost:8090/ --no va no se por que
+ http://localhost:8086 -->Hello default
+ 
+ // AHORA VAMOS A IMPORTAR EL 06 --->maÒana
+
+
+	
+****************************************************************************
+Ahora habla de Feign
+
+quremos que el controlador no cambie por tener que accedre aun servicio --->interfaz para usar api rest	
+
+circulito 1  con rest template dentro --->  circulito2 envuleto con un api rest
+										tiene un objeto dentro que par poder ser accedido desde 1 deb de ser a tarvae de rest templaet de 1 y api res envoltorio de 2 
+										
+@FeignClient
+	
+*********************************************************************************
+DÌa 4 SEGUIMOS CON EL DIBIJITO DE LAS CAJOTAS....
+ImportÛ el proyyecto ServicioDescucbrimiento y le llamo DeMonolitoAMICREOERVICIOS
+CREO D OS CLASES:
+sERVICIO1-->TIENE DE ATRIBUTO A SERVCIO 2 ---->ACOPLAMINETO
+SERVICIO2-
+
+eNTONCES CREA UNA INTERFAZ IServicio2 CON LOS METODS DE SERVICIO DOS Y CAMBIA EL
+@Autowired
+private Servicio2 servicio2
+
+a
+@Autowired
+private IServicio2 servicio2 -->Y la clase Servicio2 la podriamos borrar
+
+
+Ahoraa otro igual para que haya dos proyectos
+DeMonolitoAMICREOERVICIOSsegundafase con sERVCIIO2 Y ISERVICIOS2 y DeMonolitoAMICREOERVICIOS-->Era monoilito
+
+aHORA PARA ACCEDER A L AINTERFAZ NEECSATIOS UN API REST--->INCLUSO LA PODRIAMOS HACER DESPARECER
+	
+En DeMonolitoAMICREOERVICIOS
+
+@Autowitrde
+private ISERVCIIOS2
+
+
+SERvicio2RestTemplete en DeMonolitoAMICREOERVICIOS impleneta Iservcio2
+-->hace una llamada a la tarea con rest()
+
+-->estoe s lo que hace feign solo que no vemos lo de resttemplate por ningun lado
+Es el proyectoMicreoservciosSimplifucadoconfeign
+
+
+@Feignnose que (@FeignClient name =holaMundo)
+method=el que necsitabamos antes de servicio2
+
+
+*****************************
+esternalizar la confifuracion
+7 y 8 importamos del workspace (07_ConfiguracionDistribuida_Bus y 08_ClienteConfiguracionDistribuida_Bus)
+-->necsaitamos arrancar en docker el rabbitmq
+
+En SPringIO 
+cloud config
+chweck config server -->SSEra lo que lleve el evento al bus
+
+
+Si arrancamos el 7 vemos un monton de endpoits a pesar de que no hya controlers ni nda -->son servicios del servdior
+el que nos cunde a nos es el /refesh -->par actualziar el bus y que todos los nodos puedan acceder al mismo
+
+
+esos entry points salen del servidore de configracion
+t
+el cliente 8 tiene algunos entrypoits pero  necsita de otros enrypoints y se lso da el servidor de confifuracion
+
+
+
+En SPringIO 
+cloud config
+chweck client server -->Para consumir de l bus creo
+
+
+La id a es que parte de Òa configuracione straÈne el servidor y otra parte en el git repo
+
+
+Yo: creo el servidor publica enel bus ese evento y el cliente se registra y accede  a ese evento CReo....
+Cli y Server tioenen que tenre MQ (Normal porque uno consume y otro produce)
+
+
+
+
+**********************
+La cajita gatwway se correponderÌa con el proyecto enrutador
+Es para hacer u api gateway.
+
+En Spring.IO 
+
+cLOUD rOUTING:
+mARCAMOS ZUUL Y rIBBON
+*****************************************
+
+
+Los 3 proyectps 14s sond e Oauth
+son tre sxq en la seguriada dostribuida hay 3 actores
+
+
+*****************************************+
+Spring.io -->cloud tracing
+Zipkin
+cloud tracing---Cenyralizar logs, tb en monoliticas
+
+*****************************************+
+
+Spring Runner testing o algo asi zzzzzzzzzzzz
+
+mockito al tenerlo como dependedencia --->@MockBean anotacion
+
+
+Para los test Junit y tal --->plugins de maven!!!
+
+
+@DatAJPATEST -->VA AL DATA.SQL Y CON ESO EJECUTA EN BD (ENNUESTRO EJMPLO 4 INSERTS)
+CREA UNA BD SOLO PARA PRUEBAS Y UN REPOSITORIO DE DATA JPA
